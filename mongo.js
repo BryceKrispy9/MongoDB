@@ -1,3 +1,5 @@
+// mongod -> mongo -> use mongoCourse
+
 db.createUser({
     user: 'Devyn',
     pwd: 'password',
@@ -49,3 +51,35 @@ db.books.insertMany([
 db.books.find().pretty() // multiple items from 'books'
 
 db.books.find({name: "The War of Art"}).pretty() // Specific item
+
+db.books.find(
+  {
+    name: "Confident Ruby"
+  },
+  {
+    name: 1,
+    authors: 1
+  }
+).pretty()
+
+db.books.find(
+  {
+    name: "Confident Ruby"
+  },
+  {
+    name: 1,
+    publishedDate: 1,
+    authors: 1
+  }
+).pretty()
+
+db.books.find(
+  {
+    name: "Confident Ruby"
+  },
+  {
+    _id: 0, // ID comes as default, this gets rid of it
+    name: 1,
+    authors: 1
+  }
+).pretty()
