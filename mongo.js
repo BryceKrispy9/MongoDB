@@ -46,4 +46,6 @@ db.books.insertMany([
 ])
 
 
-db.books.find().pretty()
+db.books.find().pretty() // multiple items from 'books'
+
+db.books.find({name: "The War of Art"}).pretty() // Specific item
