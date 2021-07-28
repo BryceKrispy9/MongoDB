@@ -62,6 +62,7 @@ db.books.find(
   }
 ).pretty()
 
+
 db.books.find(
   {
     name: "Confident Ruby"
@@ -73,6 +74,7 @@ db.books.find(
   }
 ).pretty()
 
+
 db.books.find(
   {
     name: "Confident Ruby"
@@ -83,3 +85,26 @@ db.books.find(
     authors: 1
   }
 ).pretty()
+
+
+db.books.insert({
+  "name": "Blink",
+  "publishedDate": new Date(),
+  "authors": [
+    { "name": "Malcolm Gladwell" },
+    { "name": "Ghost Writer" }
+  ]
+});
+
+db.books.find(
+  {
+    name: "Blink"
+  },
+  {
+    publishedDate: 1,
+    name: 1,
+    authors: { $slice: -1 }
+  }
+).pretty()
+
+db.books.remove({name: "OOP Programming"})
