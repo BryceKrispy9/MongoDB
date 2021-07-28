@@ -132,3 +132,18 @@ db.books.find(
   "authors.name": 1 // Embedded nested object (IE only include name)
 }
 ).pretty()
+
+
+db.books.find({name: "OOP Programming"}).length()
+db.books.findOne({name: "OOP Programming"}) // findOne query (One document only)
+
+
+db.books.insert({
+  "name": "Deep Work: Rules for Focused Success in a Distracted World",
+  "publishedDate": new Date(),
+  "authors": [
+      {"name": "Cal Newport"}
+  ]
+});
+
+db.books.findOne({ name: /.*deep work.*/i }) // Query portion of string ('i' ignores case sensitivity)
