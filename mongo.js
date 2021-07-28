@@ -147,3 +147,17 @@ db.books.insert({
 });
 
 db.books.findOne({ name: /.*deep work.*/i }) // Query portion of string ('i' ignores case sensitivity)
+
+
+db.books.insert( 
+  {
+    "name": "Deep Work: Rules for Focused Success in a Distracted World",
+    "publishedDate": new Date(),
+    "reviews": 100,
+    "authors": [
+      {"name": "Cal Newport"}
+    ]
+  }
+)
+
+db.books.find({ reviews: { $exists: true }}) // Checks to see if field exists in document
